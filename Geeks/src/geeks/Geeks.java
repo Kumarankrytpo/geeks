@@ -28,7 +28,13 @@ public class Geeks {
 //       pm.countOfElements();
 //       pm.sumofArray();
 //       pm.printElementsofArray();
-       pm.findIndex();
+//       pm.findIndex();
+//       pm.swapKthElements();
+//       pm.displayLongestName();
+//       pm.cPlusPlusArrayPrintAnElement();
+//       pm.perfectArrays();
+    //       pm.smallerAndLarger();
+       pm.atLeastTwoGreaterElements();
        
     }
     

@@ -303,28 +303,135 @@ class Problem implements pblms{
         System.out.println("Enter the key value : ");
         int key = scan.nextInt();
         int rtnarr[] = new int[2];
-        int right = 0;
-        int left = arr.length-1;
-        while(right<left){
-            if(arr[right]==key){
-                rtnarr[0]=right;
-            }else if(rtnarr[0]==0){
-                right++;
+        boolean flag=false;
+        for(int i=0;i<size;i++){
+            if(arr[i]==key && !flag){
+                rtnarr[0]=i;
+                flag=true;
+            }else if(flag && arr[i]==key && rtnarr[1]<i){
+                rtnarr[1]=i;
             }
-            if(arr[left]==key){
-                rtnarr[1]=left;
-            }else if(rtnarr[1]==0){
-                left--;
-            }
-            if(right==left || rtnarr[0]!=0 && rtnarr[1]!=0){
-                break;
-            }
-            
         }
         if(rtnarr[0]!=0 && rtnarr[1]==0){
             rtnarr[1]=rtnarr[0];
+        }else if(!flag){
+            rtnarr[0]=-1;
+            rtnarr[1]=-1;
         }
+        
         System.out.println("This final array : "+Arrays.toString(rtnarr));
     }
+    
+    public void swapKthElements(){
+        System.out.println("Ente the size of the array : ");
+        int size  = scan.nextInt();
+        System.out.println("Enter the array Elements : ");
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i] = scan.nextInt();
+        }
+        System.out.println("Enter the key value : ");
+        int k=scan.nextInt();
+        
+        if(k>arr.length){
+            System.out.println("No in array");
+        }else{
+            int temp = arr[k-1];
+            arr[k-1] = arr[arr.length-k];
+            arr[arr.length-k]=temp;
+        }
+        System.out.println("Final array ; "+Arrays.toString(arr));
+    }
+    public void displayLongestName(){
+        System.out.println("Enter the array size : ");
+        int size = scan.nextInt();
+        System.out.println("Enter the array Elements : ");
+        String names[] = new String[size];
+        for(int i=0;i<size;i++){
+            names[i] = scan.next();
+        }
+        
+        String ln = "";
+        for(String s : names){
+            if(s.length()>ln.length()){
+                ln = s;
+            }
+        }
+        System.out.println("This is longest names : "+ln);
+    }
+    
+    public void cPlusPlusArrayPrintAnElement(){
+        System.out.println("Enter the size if the array : ");
+        int size = scan.nextInt();
+        System.out.println("Enter the array Elements : ");
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i] = scan.nextInt();
+        }
+        System.out.println("Enter the key value : ");
+        int index = scan.nextInt();
+        System.out.println("This is index value "+arr[index]);
+    } 
+    
+    public void perfectArrays(){
+        System.out.println("Enter the size of the array : ");
+        int size = scan.nextInt();
+        System.out.println("Enter the array Elements : ");
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i] = scan.nextInt();
+        }
+        
+        int right=0,left=arr.length-1;
+        boolean flag=true;
+        while(right!=left){
+            if(arr[right]!=arr[left]){
+                flag=false;
+                break;
+            }else{
+                right++;
+                left--;
+            }
+        }
+        System.out.println("Perfect or NOT : "+flag);
+    }
+    
+    public void smallerAndLarger(){
+        System.out.println("Enter the size of the array : ");
+        int size  = scan.nextInt();
+        System.out.println("Enter the aray Elements : ");
+        int arr[] = new int[size];
+        for(int i=0;i<size;i++){
+            arr[i] = scan.nextInt();
+        }
+        System.out.println("Enter the key value : ");
+        int key = scan.nextInt();
+        int small=0,large=0;
+        for(int n : arr){
+            if(n<=key){
+                small++;
+            }
+            if(n>=key){
+                large++;
+            }
+        }
+        int rtnarr[] = new int[]{small,large}; 
+        System.out.println("This is small and largest elements in the array : "+Arrays.toString(rtnarr));
+    }
+    
+    public void atLeastTwoGreaterElements(){
+        System.out.println("Enter the size of the array : ");
+        int size =  scan.nextInt();
+        System.out.println("Enter the array Elements :");
+        long arr[] = new long[size];
+        for(int i=0;i<size;i++){
+            arr[i] = scan.nextLong();
+        }
+        Arrays.sort(arr);
+        long rtnarr[] = new long[arr.length-2];
+        rtnarr = arr;
+        System.out.println("final array : "+Arrays.toString(rtnarr));
+    }
+
 }
 

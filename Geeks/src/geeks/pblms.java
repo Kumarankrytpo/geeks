@@ -27,5 +27,12 @@ public interface pblms {
     void sumofArray();
     void printElementsofArray();
     void findIndex();
-    
+    void swapKthElements();
+    void displayLongestName();
+    void cPlusPlusArrayPrintAnElement(); 
+    void perfectArrays();
+    void smallerAndLarger();
+    void atLeastTwoGreaterElements();
+
+
 }
